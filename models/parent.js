@@ -22,11 +22,11 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-//   Author.associate = function(models) {
-//     Author.hasMany(models.Post, {
-//       onDelete: "cascade"
-//     });
-//   };
+  Parent.associate = function(models) {
+    Parent.hasMany(models.Student, {
+      onDelete: "cascade"
+    });
+  };
 
-//   return Author;
-// };
+  return Parent;
+};
