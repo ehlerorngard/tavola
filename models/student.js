@@ -16,9 +16,25 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false 
     },
-    teacher_id: {
+    staff_id: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    asthma: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    allergy: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    epi_pen: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    chronic_condition: {
+      type: DataTypes.Text,
+      allowNull: true
     }
   });
 
