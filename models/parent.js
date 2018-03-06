@@ -14,17 +14,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     student_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
     },
     parentMedConsent: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
-  });
+  }, {underscored: true});
 
   Parent.associate = function(models) {
-    Parent.hasMany(models.Student, {
-      onDelete: "cascade"
+    Parent.belongsToMany(models.Student, {
+      through: "family",
+      foreignKey: "parent_id",
+      otherKey: "student_id"
     });
   };
 
