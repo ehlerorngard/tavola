@@ -1,140 +1,130 @@
 $(document).ready(function() {
   /* global moment */
 
-  // // blogContainer holds all of our posts
-  // var blogContainer = $(".blog-container");
-  // var postCategorySelect = $("#category");
-  // Click events for the edit and delete buttons
-  $(document).on("click", "button.delete", handlePostDelete);
-  // Variable to hold our posts
-  var posts;
+  var firstnameInput = $("#firstname-input");
+  var lastnameInput = $("#lastname-input");
+  var birthdateInput = $("#birthdate-input");
+  var parentIdInput = $("#parent-ID");
+  var staffIdInput = $("#staff-ID");
+  var asthma = $(".asthma");
+  var studentAllergy = $("#student-allergies");
+  var epiPen = $(".epipen");
+  var chronicCon = $("#chronic-condition");
+  var formInputs = $(".form-control");
+  var formCheckInputs = $(".form-check-input");
 
-  // The code below handles the case where we want to get blog posts for a specific author
-  // Looks for a query param in the url for author_id
-  var url = window.location.search;
-  var authorId;
-  if (url.indexOf("?author_id=") !== -1) {
-    authorId = url.split("=")[1];
-    getPosts(authorId);
-  }
-  // If there's no authorId we just get all posts as usual
-  else {
-    getPosts();
-  }
+  // Adding event listeners to the form to create a new object
+  $(document).on("submit", "#student-form", handleStudentFormSubmit);
 
+  // Getting the intiial list of Authors
+  getAuthors();
 
-  // This function grabs posts from the database and updates the view
-  function getPosts(author) {
-    authorId = author || "";
-    if (authorId) {
-      authorId = "/?author_id=" + authorId;
+  // A function to handle what happens when the form is submitted to create a new Author
+  function handleStudentFormSubmit(event) {
+    event.preventDefault();
+    // Don't do anything if the name fields hasn't been filled out
+    if (!formInputs.val().trim().trim() || !formCheckInputs.val().trim().trim()) {
+      return;
     }
-    $.get("/api/posts" + authorId, function(data) {
-      console.log("Posts", data);
-      posts = data;
-      if (!posts || !posts.length) {
-        displayEmpty(author);
-      }
-      else {
-        initializeRows();
-      }
+    // if (!firstnameInput.val().trim().trim() || !lastnameInput.val().trim().trim() || !birthdateInput.val().trim().trim()) {
+    //   return;
+    // }
+    // Calling the upsertAuthor function and passing in the value of the name input
+    upsertFirstName({
+      firstname: firstnameInput
+        .val()
+        .trim()
+    });
+    upsertLastName({
+      lastname: lastnameInput
+        .val()
+        .trim()
+    });
+    upsertBirthdate({
+      birthdate: birthdateInput
+        .val()
+        .trim()
+    });
+    upsertParentId({
+      parentId: parentIdInput
+        .val()
+        .trim()
+    });
+    upsertStaffId({
+      staffId: staffIdInput
+        .val()
+        .trim()
+    });
+    upsertAllergy({
+      allergy: studentAllergy
+        .val()
+        .trim()
+    });
+    upsertChronicCon({
+      condition: chronicCon
+        .val()
+        .trim()
     });
   }
 
-  // // This function does an API call to delete posts
-  // function deletePost(id) {
-  //   $.ajax({
-  //     method: "DELETE",
-  //     url: "/api/posts/" + id
-  //   })
-  //   .done(function() {
-  //     getPosts(postCategorySelect.val());
-  //   });
-  // }
-
-  // InitializeRows handles appending all of our constructed post HTML inside blogContainer
-  function initializeRows() {
-    blogContainer.empty();
-    var postsToAdd = [];
-    for (var i = 0; i < posts.length; i++) {
-      postsToAdd.push(createNewRow(posts[i]));
-    }
-    blogContainer.append(postsToAdd);
+  // A function for creating an author. Calls getAuthors upon completion
+  function upsertAuthor(authorData) {
+    $.post("/api/authors", authorData)
+      .then(getAuthors);
   }
 
-  // This function constructs a post's HTML
-  function createNewRow(post) {
-    var formattedDate = new Date(post.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    var newPostPanel = $("<div>");
-    newPostPanel.addClass("panel panel-default");
-    var newPostPanelHeading = $("<div>");
-    newPostPanelHeading.addClass("panel-heading");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-info");
-    var newPostTitle = $("<h2>");
-    var newPostDate = $("<small>");
-    var newPostAuthor = $("<h5>");
-    newPostAuthor.text("Written by: " + post.Author.name);
-    newPostAuthor.css({
-      float: "right",
-      color: "blue",
-      "margin-top":
-      "-10px"
+  // Function for creating a new list row for authors
+  function createAuthorRow(authorData) {
+    var newTr = $("<tr>");
+    newTr.data("author", authorData);
+    newTr.append("<td>" + authorData.name + "</td>");
+    newTr.append("<td> " + authorData.Posts.length + "</td>");
+    newTr.append("<td><a href='/blog?author_id=" + authorData.id + "'>Go to Posts</a></td>");
+    newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
+    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-author'>Delete Author</a></td>");
+    return newTr;
+  }
+
+  // Function for retrieving authors and getting them ready to be rendered to the page
+  function getAuthors() {
+    $.get("/api/authors", function (data) {
+      var rowsToAdd = [];
+      for (var i = 0; i < data.length; i++) {
+        rowsToAdd.push(createAuthorRow(data[i]));
+      }
+      renderAuthorList(rowsToAdd);
+      nameInput.val("");
     });
-    var newPostPanelBody = $("<div>");
-    newPostPanelBody.addClass("panel-body");
-    var newPostBody = $("<p>");
-    newPostTitle.text(post.title + " ");
-    newPostBody.text(post.body);
-    newPostDate.text(formattedDate);
-    newPostTitle.append(newPostDate);
-    newPostPanelHeading.append(deleteBtn);
-    newPostPanelHeading.append(editBtn);
-    newPostPanelHeading.append(newPostTitle);
-    newPostPanelHeading.append(newPostAuthor);
-    newPostPanelBody.append(newPostBody);
-    newPostPanel.append(newPostPanelHeading);
-    newPostPanel.append(newPostPanelBody);
-    newPostPanel.data("post", post);
-    return newPostPanel;
   }
 
-  // This function figures out which post we want to delete and then calls deletePost
-  function handlePostDelete() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    deletePost(currentPost.id);
-  }
-
-  // This function figures out which post we want to edit and takes it to the appropriate url
-  function handlePostEdit() {
-    var currentPost = $(this)
-      .parent()
-      .parent()
-      .data("post");
-    window.location.href = "/cms?post_id=" + currentPost.id;
-  }
-
-  // This function displays a messgae when there are no posts
-  function displayEmpty(id) {
-    var query = window.location.search;
-    var partial = "";
-    if (id) {
-      partial = " for Author #" + id;
+  // A function for rendering the list of authors to the page
+  function renderAuthorList(rows) {
+    authorList.children().not(":last").remove();
+    authorContainer.children(".alert").remove();
+    if (rows.length) {
+      console.log(rows);
+      authorList.prepend(rows);
+    } else {
+      renderEmpty();
     }
-    blogContainer.empty();
-    var messageh2 = $("<h2>");
-    messageh2.css({ "text-align": "center", "margin-top": "50px" });
-    messageh2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
-    "'>here</a> in order to get started.");
-    blogContainer.append(messageh2);
   }
 
+  // Function for handling what to render when there are no authors
+  function renderEmpty() {
+    var alertDiv = $("<div>");
+    alertDiv.addClass("alert alert-danger");
+    alertDiv.text("You must create an Author before you can create a Post.");
+    authorContainer.append(alertDiv);
+  }
+
+  // Function for handling what happens when the delete button is pressed
+  function handleDeleteButtonPress() {
+    var listItemData = $(this).parent("td").parent("tr").data("author");
+    var id = listItemData.id;
+    $.ajax({
+      method: "DELETE",
+      url: "/api/authors/" + id
+    })
+      .done(getAuthors);
+  }
 });

@@ -12,9 +12,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    email: {
+      type: DataTypes.STRING
+    }
     student_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
     }
     // ,isAdmin: {
     //   type: DataTypes.BOOLEAN,
@@ -26,12 +28,14 @@ module.exports = function(sequelize, DataTypes) {
     // defaultValue: false,
     // allowNull: false
     // }
-  });
+  }, {underscored: true});
 
-  // Staff.associate = function(models) {
-  //   Staff.hasMany(models.Student, {
-  //   });
-  // };
+  Staff.associate = function(models) {
+    Staff.hasMany(models.Student, {
+      foreignKey: 'teacher_id',
+      sourceKey: 'student_id'
+    });
+  };
 
   return Staff;
 };
