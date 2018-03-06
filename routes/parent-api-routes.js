@@ -33,11 +33,14 @@ module.exports = function(app) {
       include: [{
         model: db.Staff,
         attributes: ['first_name', 'last_name', 'phone_number', 'email']
-        where: {teacher_id: req.body.parent_id}
+        where: {id: db.Student.teacher_id}
       }]
-    }).then(function(dbStudent){
+    }).then(function(data){
+      var dbStudent = {
+        infoForParent: data
+      }
       console.log(dbStudent);
-      res.json(dbStudent);
+      res.render("parent", dbStudent);
     });
   });
 
