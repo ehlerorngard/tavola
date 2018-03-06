@@ -1,11 +1,13 @@
-button.submit {
-  float: right;
+body {
+  font-family: "Open Sans";
 }
 
-form#cms {
-  margin-top: 50px;
+.nav {
+  background-color: #29BF89;
+  color: white;
 }
 
+<<<<<<< HEAD
 #cms textarea {
   resize: none;
 }
@@ -50,3 +52,9 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+=======
+.tavola-logo {
+  height: 85px;
+  width: 85px;
+}
+>>>>>>> f6ad486588cc140a308fcc241781b06b6abdce07
