@@ -14,11 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     parent_id: {
       type: DataTypes.INTEGER,
-      allowNull: false 
     },
-    staff_id: {
+    teacher_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
     },
     asthma: {
       type: DataTypes.BOOLEAN,
@@ -36,18 +34,17 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.Text,
       allowNull: true
     }
-  });
+  }, {underscored: true});
 
   Student.associate = function(models) {
-    Student.belongsTo(models.Parent, {
-      foreignKey: {
-        allowNull: false
-      }
+    Student.belongsToMany(models.Parent, {
+      through: "family",
+      foreignKey: "student_id",
+      otherKey: "parent_id"
     });
     Student.belongsTo(models.Staff, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "teacher_id",
+      targetKey: "student_id"
     });
   };
 
