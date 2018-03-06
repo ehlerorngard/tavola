@@ -1,48 +1,45 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/api/authors", function(req, res) {
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
-    db.Author.findAll({
-      include: [db.Post]
-    }).then(function(dbAuthor) {
-      console.log('dbAuthor');
-      console.log(dbAuthor);
-      console.log('dbAuthor');
-      res.json(dbAuthor);
+
+app.get("/api/teacher/class", function(req, res) {
+    
+// Display to the parent his/her student population info
+    db.Teacher.findAll({
+      where: {teacher_id: req.body.teacher_id}
+      include: [{
+        model: db.Teacher,
+        through: {
+          attributes: [
+// any student values we wpuld want would go here
+          ],
+        }
+      }]
+    }).then(function(dbTeacher) {
+      console.log(dbTeacher);
+      res.json(dbTeacher);
+    });
+
+// =========================
+// Read data for the teacher's student(s),
+// =========================
+    db.Teacher.findAll({
+      where: {teacher_id: req.body.teacher_id},
+      include: [{
+        model: db.Staff,
+        attributes: ['first_name', 'last_name', 'phone_number', 'email']
+        where: {teacher_id: req.body.teacher_id}
+      }]
+    }).then(function(dbTeacher){
+      console.log(dbTeacher);
+      res.json(dbTeacher);
     });
   });
 
-  app.get("/api/authors/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
-    db.Author.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
+  app.post("/api/teacher/add", function(req, res) {
+    db.Teacher.create(req.body).then(function(dbStudent) {
+      res.json(dbTeacher);
+      console.log(dbTeacher);
     });
   });
-
-  app.post("/api/authors", function(req, res) {
-    db.Author.create(req.body).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
-
-  app.delete("/api/authors/:id", function(req, res) {
-    db.Author.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
-
 };
