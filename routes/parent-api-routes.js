@@ -9,7 +9,7 @@ module.exports = function(app) {
     
     // this would display to the parent user their own info
     db.Parent.findAll({
-      where: {parent_id: req.body.parent_id}
+      where: {parent_id: req.body.id}
       include: [{
         model: db.Student,
         through: {
