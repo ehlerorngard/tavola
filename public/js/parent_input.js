@@ -1,12 +1,11 @@
 $(document).ready(function() {
   /* global moment */
 
-  // blogContainer holds all of our posts
-  var blogContainer = $(".blog-container");
-  var postCategorySelect = $("#category");
+  // // blogContainer holds all of our posts
+  // var blogContainer = $(".blog-container");
+  // var postCategorySelect = $("#category");
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
-  $(document).on("click", "button.edit", handlePostEdit);
   // Variable to hold our posts
   var posts;
 
@@ -42,16 +41,16 @@ $(document).ready(function() {
     });
   }
 
-  // This function does an API call to delete posts
-  function deletePost(id) {
-    $.ajax({
-      method: "DELETE",
-      url: "/api/posts/" + id
-    })
-    .done(function() {
-      getPosts(postCategorySelect.val());
-    });
-  }
+  // // This function does an API call to delete posts
+  // function deletePost(id) {
+  //   $.ajax({
+  //     method: "DELETE",
+  //     url: "/api/posts/" + id
+  //   })
+  //   .done(function() {
+  //     getPosts(postCategorySelect.val());
+  //   });
+  // }
 
   // InitializeRows handles appending all of our constructed post HTML inside blogContainer
   function initializeRows() {
