@@ -16,8 +16,8 @@ module.exports = function(app) {
           attributes: [
             // any student values we'd want would go here
           ],
-        }
-      }]
+        },
+      }],
     }).then(function(dbStudent) {
       console.log(dbStudent);
       res.json(dbStudent);

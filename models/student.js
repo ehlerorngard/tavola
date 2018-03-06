@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     },
     chronic_condition: {
-      type: DataTypes.Text,
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {underscored: true});

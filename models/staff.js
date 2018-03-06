@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING
-    }
+    },
     student_id: {
       type: DataTypes.INTEGER,
     }
