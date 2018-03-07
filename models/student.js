@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true
     }
-  }, {underscored: true});
+  }, {underscored: true, timestamps: false});
 
   Student.associate = function(models) {
     // Student.belongsToMany(models.Parent, {
@@ -43,12 +43,14 @@ module.exports = function(sequelize, DataTypes) {
       // otherKey: "parent_id"
     // });
     Student.belongsTo(models.Staff, {
+
       foreignKey: "teacher_id",
       // targetKey: "student_id"
     });
     Student.belongsTo(models.Parent, {
       foreignKey: "parent_id",
       // targetKey: "student_id"
+    //   foreignKey: "teacher_id",
     });
   };
 
