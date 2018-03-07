@@ -33,6 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
       allowNull: false
+    }
   }, {underscored: true});
 
   Staff.associate = function(models) {
@@ -41,6 +42,13 @@ module.exports = function(sequelize, DataTypes) {
       // sourceKey: 'student_id'
     });
   };
+
+  // Staff.associate = function(models) {
+  //   Staff.hasMany(models.Student, {
+  //     foreignKey: 'teacher_id',
+  //     sourceKey: 'student_id'
+  //   });
+  // };
 
   return Staff;
 };
