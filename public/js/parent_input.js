@@ -1,20 +1,18 @@
 $(document).ready(function () {
   /* global moment */
 
-  var firstnameInput = $("#firstname-input");
-  var lastnameInput = $("#lastname-input");
-  var birthdateInput = $("#birthdate-input");
-  var parentIdInput = $("#parent-ID");
-  var staffIdInput = $("#staff-ID");
-  var asthma = $(".asthma");
-  var studentAllergy = $("#student-allergies");
-  var epiPen = $(".epipen");
-  var chronicCon = $("#chronic-condition");
-  var formInputs = $(".form-control");
-  var formCheckInputs = $(".form-check-input");
-
   // Adding event listeners to the form to create a new object
-  $(document).on("submit", "#student-form", handleStudentFormSubmit);
+  $(document).on("submit", "#create-student-form", handleStudentFormSubmit);
+    var firstnameInput = $("#firstname-input").val().trim();
+    var lastnameInput = $("#lastname-input").val().trim();
+    var birthdateInput = $("#birthdate-input").val().trim();
+    var studentGrade = $("#grade-input").val().trim();
+    var parentIdInput = $("#parent-ID").val().trim();
+    var staffIdInput = $("#staff-ID").val().trim();
+    var asthma = $("[name='asthma_radio']:checked").val();
+    var studentAllergy = $("#student-allergies").val().trim();
+    var epiPen = $("[name='epiPen_radio']:checked").val();
+    var chronicCon = $("#chronic-condition").val().trim();
 
   // Getting the intiial list of Authors
   // getStudents();
@@ -31,88 +29,45 @@ $(document).ready(function () {
     // }
     else {
       // Calling the upsertStudent function and passing in the value of the form entries
-      upsertFirstName({
-        firstname: firstnameInput
-          .val()
-          .trim()
-      });
-      upsertLastName({
-        lastname: lastnameInput
-          .val()
-          .trim()
-      });
-      upsertBirthdate({
-        birthdate: birthdateInput
-          .val()
-          .trim()
-      });
-      upsertParentId({
-        parentId: parentIdInput
-          .val()
-          .trim()
-      });
-      upsertStaffId({
-        staffId: staffIdInput
-          .val()
-          .trim()
-      });
-      upsertAsthmaCount({
-        asthma: asthma
-          .val()
-          .trim()
-      });
-      upsertAllergy({
-        allergy: studentAllergy
-          .val()
-          .trim()
-      });
-      upsertEpipenCount({
-        epipen: epipen
-          .val()
-          .trim()
-      });
-      upsertChronicCon({
-        condition: chronicCon
-          .val()
-          .trim()
-      });
+      var newStudent = {
+        first_name: firstnameInput,
+        last_name: lastnameInput,
+        birth_date: birthdateInput,
+        grade: studentGrade,
+        parent_id: parentIdInput,
+        teacher_id: staffIdInput,
+        asthma: asthma,
+        allergy: studentAllergy,
+        epi_pen: epipen,
+        chronic_condition: chronicCon
+      };
+      $.ajax("/api/parent/add", {
+        type: "POST",
+        data: newStudent
+      }).then(function() {
+          console.log("created new cat");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
     }
+  }
 
-    // A function for creating an student. Calls getAuthors upon completion
-    function upsertStudent(studentData) {
-      $.post("/api/students", studentsData, function () {
-        window.location.origin;
-      });
-    }
-
-    // )
-    //     .then(getStudents);
-    // }
-
-    // // Function for creating a new list row for students
-    // function createStudentRow(studentsData) {
-    //   var newTr = $("<tr>");
-    //   newTr.data("students", studentsData);
-    //   newTr.append("<td>" + studentsData.name + "</td>");
-    //   newTr.append("<td> " + studentsData.length + "</td>");
-    //   newTr.append("<td><a href='/blog?students_id=" + studentsData.id + "'>Go to Posts</a></td>");
-    //   newTr.append("<td><a href='/cms?students_id=" + studentsData.id + "'>Create a Post</a></td>");
-    //   newTr.append("<td><a style='cursor:pointer;color:red' class='delete-students'>Delete students</a></td>");
-    //   return newTr;
-    // }
+ 
 
     // Adding event listeners to initiate AJAX call to get the allergies, the presence of asthmatics, and other chronic conditions
-    $(document).on("submit", "#student-form", getClass);
+  $(document).on("click", "#", getClass);
 
     // Function for retrieving authors and getting them ready to be rendered to the page
     function getClass() {
-      $.get("/api/class", function (data) {
-        var rowsToAdd = [];
-        for (var i = 0; i < data.length; i++) {
-          rowsToAdd.push(createStudentRow(data[i]));
-        }
-        renderStudentList(rowsToAdd);
-        nameInput.val("");
+      $.get("/api/parent/class", function(data) {
+        // var rowsToAdd = [];
+        // for (var i = 0; i < data.length; i++) {
+        //   rowsToAdd.push(createStudentRow(data[i]));
+        // }
+        // renderStudentList(rowsToAdd);
+        // nameInput.val("");
+        console.log(data);
       });
     }
 
