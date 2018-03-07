@@ -17,6 +17,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     student_id: {
       type: DataTypes.INTEGER,
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
+    },
+    isTeacher: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
     }
     // ,isAdmin: {
     //   type: DataTypes.BOOLEAN,
@@ -29,13 +39,12 @@ module.exports = function(sequelize, DataTypes) {
     // allowNull: false
     // }
   }, {underscored: true, timestamps: false});
-
+  
   // Staff.associate = function(models) {
   //   Staff.hasMany(models.Student, {
   //     foreignKey: 'teacher_id',
   //     sourceKey: 'student_id'
   //   });
   // };
-
   return Staff;
 };
