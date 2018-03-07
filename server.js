@@ -49,3 +49,4 @@ db.sequelize.sync({force: true}).then(function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
+});
