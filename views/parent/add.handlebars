@@ -1,66 +1,92 @@
 {{> nav-parent-block}}
 {{!-- Add form that will capture the values that will be used by the parent_input.js file to populate the student.js model
 via a POST request --}}
+
+<div class="jumbotron jumbotron-fluid p-4 mb-0 bg-white">
+    <div class="container ml-0">
+        <img src="tavola-logo.png" alt="Tavola Logo" class="tavola-logo">
+        <h1 class="display-5 d-inline"><strong>Tavola</strong><small> - Parent View</small></h1>
+    </div>
+</div>
+{{!-- Navbar --}}
+<ul class="nav nav-tabs p-2 pl-4">
+    <li class="nav-item">
+        <a class="nav-link text-white" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">Classroom Profiles</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-white" href="#">Add Your Student</a>
+    </li>
+</ul>
+
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <h2>Create Student</h2>
-            <form>
+            <form id="create-student-form">
                 <div class="form-group">
-                    <label for="exampleInputFirstname1">Student First Name</label>
-                    <input type="firstname" class="form-control" id="firstname-input" placeholder="First Name">
+                    <label for="firstname-input">Student First Name</label>
+                    <input type="text" class="form-control" id="firstname-input" placeholder="First Name">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputLastname1">Student Last Name</label>
-                    <input type="lastname" class="form-control" id="lastname-input" placeholder="Last Name">
+                    <label for="lastname-input">Student Last Name</label>
+                    <input type="text" class="form-control" id="lastname-input" placeholder="Last Name">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputBirthdate1">Student Birthdate</label>
-                    <input type="birthdate" class="form-control" id="birthdate-input" placeholder="MM/DD/YYYY">
+                    <label for="grade-input">Grade</label>
+                    <input type="number" class="form-control" id="grade-input" placeholder="Grade">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputParentId1">Parent ID</label>
-                    <input type="parentId" class="form-control" id="parent-ID" placeholder="Parent ID">
+                    <label for="birthdate-input">Student Birthdate</label>
+                    <input type="text" class="form-control" id="birthdate-input" placeholder="MM/DD/YYYY">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputStaffId1">Staff ID</label>
-                    <input type="staffId" class="form-control" id="staff-ID" placeholder="Staff ID">
+                    <label for="parent-ID">Parent ID</label>
+                    <input type="number" class="form-control" id="parent-ID" placeholder="Parent ID">
+                </div>
+                <div class="form-group">
+                    <label for="staff-ID">Staff ID</label>
+                    <input type="number" class="form-control" id="staff-ID" placeholder="Staff ID">
                 </div>
                 <div>
                     <label for="exampleInputAsthmaId1">Does the student suffer from Asthma?</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input asthma" type="checkbox" id="inlineCheckbox1" value="true">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox1" name="asthma_radio" value="true">
                     <label class="form-check-label" for="inlineCheckbox1">Yes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input asthma" type="checkbox" id="inlineCheckbox2" value="false">
+                    <input class="form-check-input" type="radio" id="inlineCheckbox2" name="asthma_radio" value="false">
                     <label class="form-check-label" for="inlineCheckbox2">No</label>
                 </div>
                 <br>
                 <br>
                 <div class="form-group">
-                    <label for="exampleInputAllergyId1">Student Allergies</label>
-                    <input type="allergies" class="form-control" id="student-allergies" placeholder="Student Allergies">
+                    <label for="student-allergies">Student Allergies</label>
+                    <input type="text" class="form-control" id="student-allergies" placeholder="Student Allergies">
                 </div>
                 <div>
                     <label for="exampleInputEpipenId1">Does the student require an epiPen due to severe allergies?</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input epipen" type="checkbox" id="inlineCheckbox1" value="true">
-                    <label class="form-check-label" for="inlineCheckbox1">Yes</label>
+                    <input class="form-check-input" type="radio" id="inlineRadio3" name="epiPen_radio" value="true">
+                    <label class="form-check-label" for="inlineRadio3">Yes</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input epipen" type="checkbox" id="inlineCheckbox2" value="false">
-                    <label class="form-check-label" for="inlineCheckbox2">No</label>
+                    <input class="form-check-input" type="radio" id="inlineRadio4" name="epiPen_radio" value="false">
+                    <label class="form-check-label" for="inlineRadio4">No</label>
                 </div>
                 <br>
                 <br>
                 <div class="form-group">
-                    <label for="exampleInputChronicCon1">Chronic Conditions</label>
-                    <input type="chronic" class="form-control" id="chronic-condition" placeholder="Chronic Conditions">
+                    <label for="chronic-condition">Chronic Conditions</label>
+                    <input type="text" class="form-control" id="chronic-condition" placeholder="Chronic Conditions">
                     <br>
-                    <button id="student-form" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>
             </form>
         </div>
