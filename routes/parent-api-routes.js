@@ -40,7 +40,7 @@ module.exports = function(app) {
         infoForParent: data
       }
       console.log(dbStudent);
-      res.render("class", dbStudent);
+      res.render("parent/class", dbStudent);
     });
   });
 
