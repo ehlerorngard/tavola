@@ -14,20 +14,20 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING
-    }
+    },
     student_id: {
       type: DataTypes.INTEGER,
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
+    },
+    isTeacher: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
     }
-    // ,isAdmin: {
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: false,
-    //   allowNull: false
-    // },
-    // isTeacher: {
-    // type: DataTypes.BOOLEAN,
-    // defaultValue: false,
-    // allowNull: false
-    // }
   }, {underscored: true});
 
   Staff.associate = function(models) {
