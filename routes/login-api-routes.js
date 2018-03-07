@@ -9,6 +9,15 @@ var db = require("../models");
 // Routes
 // =============================================================
 // module.exports = function(app) {
+//   app.get("/login", function(req, res) {
+//     db.Staff.findOne({
+//       where: {
+//         username: req.body.username,
+//         id: req.params.id
+//       },
+//       include: [db.Author]
+//     }).then(function(data) {
+//       res.render("login/login", data);
 
 //   app.get("/login", function(req, res) {
 //     db.Staff.findOne({
@@ -19,6 +28,7 @@ var db = require("../models");
 //       include: [db.Author]
 //     }).then(function(data) {
 //       res.render("login/login", data);
+
 
 //       if (data.isTeacher) {
 //         res.json(data);
@@ -64,4 +74,3 @@ module.exports = function(app) {
   });
 
 };
-

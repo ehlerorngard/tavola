@@ -43,7 +43,6 @@ module.exports = function(sequelize, DataTypes) {
       // otherKey: "parent_id"
     // });
     Student.belongsTo(models.Staff, {
-
       foreignKey: "teacher_id",
       // targetKey: "student_id"
     });
