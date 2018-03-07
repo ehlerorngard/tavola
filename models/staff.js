@@ -23,17 +23,16 @@ module.exports = function(sequelize, DataTypes) {
     },
     password: {
       type: DataTypes.STRING
-    }
-    // ,isAdmin: {
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: false,
-    //   allowNull: false
-    // },
-    // isTeacher: {
-    // type: DataTypes.BOOLEAN,
-    // defaultValue: false,
-    // allowNull: false
-    // }
+    },
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
+    },
+    isTeacher: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
   }, {underscored: true});
 
   Staff.associate = function(models) {

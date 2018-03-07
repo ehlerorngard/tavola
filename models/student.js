@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true
     }
-  }, {underscored: true});
+  }, {underscored: true, timestamps: false});
 
   Student.associate = function(models) {
     // Student.belongsToMany(models.Parent, {

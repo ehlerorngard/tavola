@@ -35,7 +35,7 @@ module.exports = function(app) {
         through: {
           attributes: [
             "first_name", "last_name", "phone_number"
-          ],
+          ]
         }
       }]
     }).then(function(data){
