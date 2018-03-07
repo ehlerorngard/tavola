@@ -28,14 +28,23 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false,
       allowNull: false
     }
-  }, {underscored: true});
-
-  Staff.associate = function(models) {
-    Staff.hasMany(models.Student, {
-      foreignKey: 'teacher_id',
-      sourceKey: 'student_id'
-    });
-  };
-
+    // ,isAdmin: {
+    //   type: DataTypes.BOOLEAN,
+    //   defaultValue: false,
+    //   allowNull: false
+    // },
+    // isTeacher: {
+    // type: DataTypes.BOOLEAN,
+    // defaultValue: false,
+    // allowNull: false
+    // }
+  }, {underscored: true, timestamps: false});
+  
+  // Staff.associate = function(models) {
+  //   Staff.hasMany(models.Student, {
+  //     foreignKey: 'teacher_id',
+  //     sourceKey: 'student_id'
+  //   });
+  // };
   return Staff;
 };

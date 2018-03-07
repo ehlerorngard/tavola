@@ -1,4 +1,3 @@
-
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
@@ -33,17 +32,15 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
+var routesHTML = require("./routes/login-api-routes.js")(app);
 var parentRoutes = require("./routes/parent-api-routes.js")(app);
-var staffRoutes = require("./routes/staff-api-routes.js")(app);
-app.use("/", parentRoutes);
-
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
+var studentRoutes = require("./routes/student-api-routes.js")(app);
+var teacherRoutes = require("./routes/staff-api-routes.js")(app);
+// app.use("/", routes);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({force: true}).then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
-});
 });
