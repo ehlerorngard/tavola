@@ -11,9 +11,9 @@ var db = require("../models");
 module.exports = function(app) {
 
   app.get("/login", function(req, res) {
-    db.User.findOne({
+    db.Staff.findOne({
       where: {
-        username: req.body.username
+        username: req.body.username,
         id: req.params.id
       },
       include: [db.Author]
@@ -26,3 +26,4 @@ module.exports = function(app) {
       }
     });
   });
+}

@@ -14,9 +14,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING
-    }
+    },
     student_id: {
       type: DataTypes.INTEGER,
+    },
+    username: {
+      type: DataTypes.STRING
+    },
+    password: {
+      type: DataTypes.STRING
     }
     // ,isAdmin: {
     //   type: DataTypes.BOOLEAN,
@@ -33,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
   Staff.associate = function(models) {
     Staff.hasMany(models.Student, {
       foreignKey: 'teacher_id',
-      sourceKey: 'student_id'
+      // sourceKey: 'student_id'
     });
   };
 
