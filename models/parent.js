@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
-  }, {underscored: true});
+  }, {underscored: true, timestamps: false});
 
   Parent.associate = function(models) {
     Parent.belongsToMany(models.Student, {
