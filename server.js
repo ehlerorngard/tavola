@@ -33,15 +33,12 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routesHTML = require("./routes/html-routes.js")(app);
 var parentRoutes = require("./routes/parent-api-routes.js")(app);
-var studentRoutes = require("./routes/student-api-routes.js")(app);
-var teacherRoutes = require("./routes/teacher-api-routes.js")(app);
-app.use("/", routes);
+var staffRoutes = require("./routes/staff-api-routes.js")(app);
+app.use("/", parentRoutes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({}).then(function() {
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync({force: true}).then(function() {
