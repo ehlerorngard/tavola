@@ -31,20 +31,24 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     },
     chronic_condition: {
-      type: DataTypes.Text,
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {underscored: true});
 
   Student.associate = function(models) {
-    Student.belongsToMany(models.Parent, {
-      through: "family",
-      foreignKey: "student_id",
-      otherKey: "parent_id"
-    });
+    // Student.belongsToMany(models.Parent, {
+      // through: "family",
+      // foreignKey: "student_id",
+      // otherKey: "parent_id"
+    // });
     Student.belongsTo(models.Staff, {
       foreignKey: "teacher_id",
-      targetKey: "student_id"
+      // targetKey: "student_id"
+    });
+    Student.belongsTo(models.Parent, {
+      foreignKey: "parent_id",
+      // targetKey: "student_id"
     });
   };
 

@@ -25,7 +25,7 @@ module.exports = function(app) {
     db.Student.findAll({
       attributes: {
         exclude: ["birth_date", "parent_id", "teacher_id"]
-      }
+      },
       where: {
         teacher_id: req.body.id,
         asthma: true

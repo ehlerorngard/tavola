@@ -22,10 +22,10 @@ module.exports = function(sequelize, DataTypes) {
   }, {underscored: true});
 
   Parent.associate = function(models) {
-    Parent.belongsToMany(models.Student, {
-      through: "family",
+    Parent.hasMany(models.Student, {
+      // through: ["family"],
       foreignKey: "parent_id",
-      otherKey: "student_id"
+      // otherKey: "student_id"
     });
   };
 
