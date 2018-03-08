@@ -137,8 +137,8 @@ module.exports = function(app) {
       console.log(studentData);
       console.log("SEARCH DATA = ", studentData[0].dataValues);
 
-      // res.json(studentData);
-      res.render("staff/search", {student: studentData[0].dataValues});
+      res.json(studentData[0].dataValues);
+      // res.render("staff/search", {student: studentData[0].dataValues});
       
     });
 

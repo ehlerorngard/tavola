@@ -30,7 +30,7 @@ module.exports = function (app) {
     });
 
     app.get("/staff/student", function(req, res) {
-        res.render('partials/studentprofiles-block');
+        res.render('staff/student-profiles-all');
     });
 
     app.get("/staff/addparent", function(req, res) {

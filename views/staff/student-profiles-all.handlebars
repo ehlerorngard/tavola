@@ -1,6 +1,6 @@
 {{> studentprofiles-block}}
 
-{{#each Student}}
+{{#each students}}
 <table class="table table-hover">
   <thead>
     <tr>
@@ -30,3 +30,36 @@
   </tbody>
 </table>
 {{/each}}
+
+<h2>Results</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Birth Date</th>
+      <th scope="col">Parent ID</th>
+      <th scope="col">Teacher ID</th>
+      <th scope="col">Asthma</th>
+      <th scope="col">Allergy</th>
+      <th scope="col">epiPen</th>
+      <th scope="col">Chronic Conditions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="id"></td>
+      <td id="first-name"></td>
+      <td id="last-name"></td>
+      <td id="birth"></td>
+      <td id="parent-id"></td>
+      <td id="teacher-id"></td>
+      <td id="asthma"></td>
+      <td id="allergy"></td>
+      <td id="epi-pen"></td>
+      <td id="chronic"></td>
+    </tr>
+  </tbody>
+</table>

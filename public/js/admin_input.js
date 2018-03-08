@@ -20,16 +20,18 @@ $(document).ready(function() {
     $.post("/staff/search", studentName)
       // console.log(studentName + "HERERERERERE")
       .done(function(studentData){
-      	$("#id").append(studentData.id);
-      	$("#first-name").append(studentData.first_name);
-      	$("#last-name").append(studentData.last_name);
-      	$("#birth").append(studentData.birth_date);
-      	$("#parent-id").append(studentData.parent_id);
-      	$("#teacher-id").append(studentData.teacher_id);
-      	$("#asthma").append(studentData.asthma);
-      	$("#allergy").append(studentData.allergy);
-      	$("#epi-pen").append(studentData.epi_pen);
-      	$("#chronic").append(studentData.chronic_condition);
+      	console.log("front-end", studentData);
+
+      	$("#id").text(studentData.id);
+      	$("#first-name").text(studentData.first_name);
+      	$("#last-name").text(studentData.last_name);
+      	$("#birth").text(studentData.birth_date);
+      	$("#parent-id").text(studentData.parent_id);
+      	$("#teacher-id").text(studentData.teacher_id);
+      	$("#asthma").text(studentData.asthma);
+      	$("#allergy").text(studentData.allergy);
+      	$("#epi-pen").text(studentData.epi_pen);
+      	$("#chronic").text(studentData.chronic_condition);
       });
 
     // Empties out search bar
