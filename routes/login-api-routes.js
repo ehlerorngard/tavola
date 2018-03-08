@@ -8,27 +8,39 @@ var db = require("../models");
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+// module.exports = function(app) {
+//   app.get("/login", function(req, res) {
+//     db.Staff.findOne({
+//       where: {
+//         username: req.body.username,
+//         id: req.params.id
+//       },
+//       include: [db.Author]
+//     }).then(function(data) {
+//       res.render("login/login", data);
 
-  app.get("/login", function(req, res) {
-    db.User.findOne({
-      where: {
-        username: req.body.username,
-        id: req.params.id
-      },
-      include: [db.Author]
-    }).then(function(data) {
-      res.render("login/login", data);
+//   app.get("/login", function(req, res) {
+//     db.Staff.findOne({
+//       where: {
+//         username: req.body.username,
+//         id: req.params.id
+//       },
+//       include: [db.Author]
+//     }).then(function(data) {
+//       res.render("login/login", data);
 
-      if (data.isTeacher) {
-        res.json(data);
-      }
-      else if (data.isAdmin) {
-        res.json(data);
-      }
-    });
-  });
-}
+
+//       if (data.isTeacher) {
+//         res.json(data);
+//       }
+//       else if (data.isAdmin) {
+//         res.json(data);
+//       }
+//     });
+//   });
+// }
+
+// }
 
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");

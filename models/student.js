@@ -37,14 +37,19 @@ module.exports = function(sequelize, DataTypes) {
   }, {underscored: true, timestamps: false});
 
   Student.associate = function(models) {
-    Student.belongsToMany(models.Parent, {
-      through: "family",
-      foreignKey: "student_id",
-      otherKey: "parent_id"
-    });
+    // Student.belongsToMany(models.Parent, {
+      // through: "family",
+      // foreignKey: "student_id",
+      // otherKey: "parent_id"
+    // });
     Student.belongsTo(models.Staff, {
+      foreignKey: "teacher_id",
+      // targetKey: "student_id"
+    });
+    Student.belongsTo(models.Parent, {
+      foreignKey: "parent_id",
+      // targetKey: "student_id"
     //   foreignKey: "teacher_id",
-    //   targetKey: "student_id"
     });
   };
 

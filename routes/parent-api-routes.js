@@ -41,16 +41,23 @@ module.exports = function(app) {
       }
       console.log(dbStudent);
       res.render("parent/class", dbStudent);
+
     });
   });
 
 
-  app.post("/api/parent/add", function(req, res) {
-    db.Parent.create(req.body).then(function(dbStudent) {
-      res.json(dbStudent);
-      console.log(dbStudent);
-    });
-  });
+//   app.post("/api/parent/add", function(req, res) {
+//     db.Parent.create(req.body)})
+//     .then(function(dbStudent) {
+//       res.json(dbStudent);
+//       console.log(dbStudent);
+//       res.render("add", dbStudent);
+
+//     });
+// //   });
 
 
-};
+// // };
+
+}
+
