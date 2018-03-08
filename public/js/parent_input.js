@@ -2,7 +2,7 @@ $(document).ready(function () {
   /* global moment */
 
   // Adding event listeners to the form to create a new object
-  $("#student-form").on("click", function(event){
+  $(".create-student-form").on("submit", function(event){
     event.preventDefault();
 
     var firstnameInput = $("#firstname-input").val().trim();
@@ -40,6 +40,7 @@ $(document).ready(function () {
         data: newStudent
       }).then(function() {
           // reloads the page to empty out the values
+          console.log("made it to the 'then' of the AJAX new student post");
           location.reload();
         }
       );

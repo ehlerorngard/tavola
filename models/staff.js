@@ -15,9 +15,9 @@ module.exports = function(sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING
     },
-    student_id: {
-      type: DataTypes.INTEGER,
-    },
+    // student_id: {
+    //   type: DataTypes.INTEGER,
+    // },
     username: {
       type: DataTypes.STRING
     },
@@ -36,12 +36,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {underscored: true});
 
-  // Staff.associate = function(models) {
-  //   Staff.hasMany(models.Student, {
-  //     // foreignKey: 'teacher_id',
+  Staff.associate = function(models) {
+    Staff.hasMany(models.Student, {
+      // foreignKey: 'teacher_id'//,
   //     // sourceKey: 'student_id'
-  //   });
-  // };
+    });
+  };
 
   // Staff.associate = function(models) {
   //   Staff.hasMany(models.Student, {

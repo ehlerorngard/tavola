@@ -1,3 +1,5 @@
+// var models = require("./");
+'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Parent = sequelize.define("Parent", {
     first_name: {
@@ -12,9 +14,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    student_id: {
-      type: DataTypes.INTEGER,
-    },
     parentMedConsent: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
@@ -22,11 +21,11 @@ module.exports = function(sequelize, DataTypes) {
   }, {underscored: true});
 
   // Parent.associate = function(models) {
-  //   Parent.hasMany(models.Student, {
+  //   Parent.hasMany(models.Student);
+  //   // Parent.hasMany(models.Student, {
   //     // through: ["family"],
-  //     // foreignKey: "parent_id",
-  //     // otherKey: "student_id"
-  //   });
+  //     foreignKey: "student_id"
+  //   // });
   // };
 
   return Parent;
