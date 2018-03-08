@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/api/teacher/class", function(req, res) {
+  app.get("/api/staff/class", function(req, res) {
     db.Student.findAll({
       where: {teacher_id: req.body.id},
       include: [{
@@ -17,11 +17,11 @@ module.exports = function(app) {
         infoForTeacher: data
       }
       console.log(dbStudent);
-      res.render("admin", dbStudent);
+      res.render("staff/student-profiles-all", dbStudent);
     });
   });
 
-  app.get("/api/teacher/class/asthma", function(req, res) {
+  app.get("/api/staff/class/asthma", function(req, res) {
     db.Student.findAll({
       attributes: {
         exclude: ["birth_date", "parent_id", "teacher_id"]
@@ -46,7 +46,7 @@ module.exports = function(app) {
       res.render("staff", dbStudent);
     });
   });
-  app.get("/api/teacher/class/allergies", function(req, res) {
+  app.get("/api/staff/class/allergies", function(req, res) {
     db.Student.findAll({
       attributes: ["first_name", "last_name", "allergy", "epi_pen", "chronic_condition", "asthma"],
       where: {
@@ -72,7 +72,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/teacher/class/allergies", function(req, res) {
+  app.get("/api/staff/class/allergies", function(req, res) {
     db.Student.findAll({
       attributes: ["first_name", "last_name", "allergy", "epi_pen", "chronic_condition", "asthma"],
       where: {
@@ -104,7 +104,7 @@ module.exports = function(app) {
     });
   });
 
-  app.delete("/api/teacher/:id", function(req, res) {
+  app.delete("/api/staff/:id", function(req, res) {
     db.Student.destroy({
       where: {
         id: req.params.id
@@ -114,4 +114,22 @@ module.exports = function(app) {
     });
   });
 
+  // Find all students with the matching last name
+  app.post("/search", function(req, res){
+    db.Student.findAll({
+      where: {
+        last_name: req.body.last_name
+      }
+    }).then(function(studentData){
+      console.log("SEARCH DATA = ", studentData.last_name);
+      res.json(studentData);
+      
+    });
+
+  });
+
 };
+
+
+
+

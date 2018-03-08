@@ -44,7 +44,6 @@ module.exports = function(app) {
     });
   });
 
-
   app.post("/api/parent/add", function(req, res) {
     db.Parent.create(req.body).then(function(dbStudent) {
       res.json(dbStudent);
