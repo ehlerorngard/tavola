@@ -1,0 +1,43 @@
+{{> nav-staff-block}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+        	<br>
+            <h2>Add a Parent</h2>
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputFirstname1">Parent First Name</label>
+                    <input type="firstname" class="form-control" id="firstname-input" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputLastname1">Parent Last Name</label>
+                    <input type="lastname" class="form-control" id="lastname-input" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputParentId1">Phone Number</label>
+                    <input type="parent-phone" class="form-control" id="parent-phone" placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputParentId1">Student ID</label>
+                    <input type="parentId" class="form-control" id="student-ID" placeholder="Student ID">
+                </div>
+                <div>
+                    <label for="exampleInputEpipenId1">Does this parent provide medical consent?</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input med" type="checkbox" id="inlineCheckbox1" value="true">
+                    <label class="form-check-label" for="inlineCheckbox1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input med" type="checkbox" id="inlineCheckbox2" value="false">
+                    <label class="form-check-label" for="inlineCheckbox2">No</label>
+                </div>
+                <br>
+                <br>
+                <button id="parent-form" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

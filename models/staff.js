@@ -45,12 +45,5 @@ module.exports = function(sequelize, DataTypes) {
   };
   
 
-  // Staff.associate = function(models) {
-  //   Staff.hasMany(models.Student, {
-  //     foreignKey: 'teacher_id',
-  //     sourceKey: 'student_id'
-  //   });
-  // };
-
   return Staff;
 };
