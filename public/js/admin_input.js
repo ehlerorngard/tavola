@@ -3,13 +3,4 @@ $(document).ready(function() {
 		
 
 
-
-		var rowsToAdd = [];
-		for (var i = 0; i < data.length; i++) {
-			rowsToAdd.push(createStudentRow(data[i]));
-		}
-      renderStudentList(rowsToAdd);
-      nameInput.val("");
-   });
-
 });
