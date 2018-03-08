@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     phone_number: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     },
     email: {
@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false,
       allowNull: false
     }
-  }, {underscored: true}, {timestamps: false});
+  }, {underscored: true, timestamps: false});
 
   Staff.associate = function(models) {
     Staff.hasMany(models.Student, {
