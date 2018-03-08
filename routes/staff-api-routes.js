@@ -126,5 +126,22 @@ module.exports = function(app) {
   //     res.json(dbAuthor);
   //   });
   // });
+    // Find all students with the matching last name
+  app.post("/staff/search", function(req, res){
+    // console.log(req.body.last_name);
+    db.Student.findAll({
+      where: {
+        last_name: req.body.last_name
+      }
+    }).then(function(studentData){
+      console.log(studentData);
+      console.log("SEARCH DATA = ", studentData[0].dataValues);
+
+      // res.json(studentData);
+      res.render("staff/search", {student: studentData[0].dataValues});
+      
+    });
+
+  });
 
 };
