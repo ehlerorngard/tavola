@@ -114,11 +114,9 @@ $(document).ready(function () {
         nameInput.val("");
       });
     }
-=======
+
     }
-    // if (!firstnameInput.val().trim().trim() || !lastnameInput.val().trim().trim() || !birthdateInput.val().trim().trim()) {
-    //   return;
-    // }
+
     else {
       // Calling the upsertStudent function and passing in the value of the form entries
       var newStudent = {
@@ -152,14 +150,13 @@ $(document).ready(function () {
 
     // Function for retrieving authors and getting them ready to be rendered to the page
     function getClass() {
-      $.get("/api/parent/class", function(data) {
-        // var rowsToAdd = [];
-        // for (var i = 0; i < data.length; i++) {
-        //   rowsToAdd.push(createStudentRow(data[i]));
-        // }
-        // renderStudentList(rowsToAdd);
-        // nameInput.val("");
-        console.log(data);
+      $.get("/api/parent/class", function (data) {
+        var rowsToAdd = [];
+        for (var i = 0; i < data.length; i++) {
+          rowsToAdd.push(createStudentRow(data[i]));
+        }
+        renderStudentList(rowsToAdd);
+        nameInput.val("");
       });
     }
 
