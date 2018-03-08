@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false,
       allowNull: false
     }
-  }, {underscored: true});
+  }, {underscored: true}, {timestamps: false});
 
   Staff.associate = function(models) {
     Staff.hasMany(models.Student, {
