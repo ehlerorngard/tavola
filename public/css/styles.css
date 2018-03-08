@@ -2,7 +2,7 @@ body {
   font-family: "Open Sans";
 }
 
-.nav:not(.student-profile) {
+.nav {
   background-color: #29BF89;
   color: white;
 }
