@@ -1,23 +1,12 @@
 // *********************************************************************************
-// html-routes.js - this file offers a set of routes for sending users to the various html pages
+// views-routes.js - this file offers a set of routes for sending users to the various html pages
 // *********************************************************************************
 
 // Dependencies
 // =============================================================
 const path = require("path");
-// const router = require('express').Router();
-const db = require("../models");
-
-// Routes
-// =============================================================
-
-
-// Each of the below routes just handles the HTML page that the user gets sent to.
-
-
-
-// router.get('/blog', renderBlog);
-// router.get('/', renderBlog);
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     // cms route loads cms.html
@@ -29,7 +18,29 @@ module.exports = function (app) {
         res.render('home');
     });
 
-}
+
+    app.get("/signup", function (req, res) {
+        // If the user already has an account send them to the staff page
+        res.render("signup");
+    });
+
+    app.get("/login", function (req, res) {
+        // If the user already has an account send them to the staff page
+        if (req.user) {
+            res.redirect("/staff");
+        }
+        // res.sendFile(path.join(__dirname, "../public/login.html"));
+        res.render("login");
+    });
+
+    // Here we've add our isAuthenticated middleware to this route.
+    // If a user who is not logged in tries to access this route they will be redirected to the signup page
+    app.get("/staff", isAuthenticated, function (req, res) {
+        res.render("student-profiles-all");
+    });
+
+};
+
 // // cms route loads cms.html
 // router.get("/parent", function (req, res) {
 //     res.render('add');

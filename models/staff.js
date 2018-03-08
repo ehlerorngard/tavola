@@ -1,3 +1,4 @@
+// Creating our Staff model
 module.exports = function(sequelize, DataTypes) {
   var Staff = sequelize.define("Staff", {
     first_name: {
@@ -27,12 +28,12 @@ module.exports = function(sequelize, DataTypes) {
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-      allowNull: false
+      allowNull: true
     },
     isTeacher: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-      allowNull: false
+      allowNull: true
     }
   }, {underscored: true});
 
@@ -42,6 +43,7 @@ module.exports = function(sequelize, DataTypes) {
       // sourceKey: 'student_id'
     });
   };
+  
 
   // Staff.associate = function(models) {
   //   Staff.hasMany(models.Student, {
