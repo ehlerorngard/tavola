@@ -66,4 +66,39 @@ $(document).ready(function() {
         }
       );
   });
+
+  $("#student-form").on("click", function(event){
+    event.preventDefault();
+
+    var firstnameInput = $("#firstname-input").val().trim();
+    var lastnameInput = $("#lastname-input").val().trim();
+    var birthdateInput = $("#birthdate-input").val().trim();
+    var parentIdInput = $("#parent-ID").val().trim();
+    var staffIdInput = $("#staff-ID").val().trim();
+    var asthma = $("input[name=asthma_radio]:checked").val();
+    var studentAllergy = $("#student-allergies").val().trim();
+    var epiPen = $("input[name=epiPen_radio]:checked").val();
+    var chronicCon = $("#chronic-condition").val().trim();
+
+      var newStudent = {
+        first_name: firstnameInput,
+        last_name: lastnameInput,
+        birth_date: birthdateInput,
+        parent_id: parentIdInput,
+        teacher_id: staffIdInput,
+        asthma: asthma,
+        allergy: studentAllergy,
+        epi_pen: epiPen,
+        chronic_condition: chronicCon
+      };
+
+      $.ajax("/api/staff/addstudent", {
+        type: "POST",
+        data: newStudent
+      }).then(function() {
+          // reloads the page to empty out the values
+          location.reload();
+        }
+      );
+  });
 });
