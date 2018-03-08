@@ -30,15 +30,7 @@ $(document).ready(function() {
     // Empties out search bar
     $("#student-search").val("");
   }
-
-
-
-
-
-
-
-
-
+  
   // To add a parent into the database
   $("#parent-form").on("click", function(event){
     event.preventDefault();

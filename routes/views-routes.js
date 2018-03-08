@@ -1,15 +1,20 @@
-// const path = require("path");
-// const router = require('express').Router();
-const db = require("../models");
+const path = require("path");
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
+module.exports = function (app) {
+    // cms route loads cms.html
+    app.get("/parent", function (req, res) {
+        res.render('add');
+    });
 
-    app.get("/", function(req, res) {
+    app.get("/", function (req, res) {
         res.render('home');
     });
 
-    app.get("/parent", function(req, res) {
-        res.render('add');
+    app.get("/signup", function (req, res) {
+        // If the user already has an account send them to the staff page
+        res.render("signup");
     });
 
     app.get("/api/parent/class", function(req, res) {
