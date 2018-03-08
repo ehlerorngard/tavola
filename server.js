@@ -32,7 +32,6 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-
   // var loginRoutes = require("./routes/login-api-routes.js")(app);
 var parentRoutes = require("./routes/parent-api-routes.js")(app);
 var viewsRoutes = require("./routes/views-routes.js")(app);
@@ -40,7 +39,7 @@ var staffRoutes = require("./routes/staff-api-routes.js")(app);
 var userRoutes = require("./routes/user-api-routes.js")(app);
 
 // Syncing our database and logging a message to the user upon success
-db.sequelize.sync({force: true}).then(function() {
+db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
