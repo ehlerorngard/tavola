@@ -46,18 +46,15 @@ module.exports = function(app) {
   });
 
 
-//   app.post("/api/parent/add", function(req, res) {
-//     db.Parent.create(req.body)})
-//     .then(function(dbStudent) {
-//       res.json(dbStudent);
-//       console.log(dbStudent);
-//       res.render("add", dbStudent);
+  app.post("/api/parent/add", function(req, res) {
+    db.Student.create(req.body)
+    .then(function(dbStudent) {
+      res.json(dbStudent);
+      console.log(dbStudent);
+      res.render("add", dbStudent);
 
-//     });
-// //   });
+    });
+  });
 
-
-// // };
-
-}
+};
 

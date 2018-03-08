@@ -12,4 +12,8 @@ module.exports = function(app) {
         res.render('add');
     });
 
+    app.get("/api/parent/class", function(req, res) {
+    	res.render('class');
+    });
+
 };
