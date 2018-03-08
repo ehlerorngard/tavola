@@ -27,11 +27,12 @@ $(document).ready(function() {
       	$("#last-name").text(studentData.last_name);
       	$("#birth").text(studentData.birth_date);
       	$("#parent-id").text(studentData.parent_id);
-      	$("#teacher-id").text(studentData.teacher_id);
+      	$("#teacher-id").text(studentData.staff_id);
       	$("#asthma").text(studentData.asthma);
       	$("#allergy").text(studentData.allergy);
       	$("#epi-pen").text(studentData.epi_pen);
       	$("#chronic").text(studentData.chronic_condition);
+        $("#updateStudentBox").html("<button class='btn btn-dark' id='updateStudent" + studentData.id + "'>update</button>")
       });
 
     // Empties out search bar
