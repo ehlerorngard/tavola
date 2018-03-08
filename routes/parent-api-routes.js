@@ -4,7 +4,7 @@ module.exports = function(app) {
 
   // this GET grabs info for the parent screen(..right?)
   // –– attributes will be the columns whose values
-  // //    we want to be able to disply to the user
+  //    we want to be able to disply to the user
   // app.get("/api/parent/class", function(req, res) {
     
   //   // this would display to the parent user their own info

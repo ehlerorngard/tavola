@@ -104,6 +104,19 @@ module.exports = function(app) {
   //   });
   // });
 
+    app.post("/staff/addparent", function(req, res){
+      db.Parent.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        phone_number: req.body.phone_number,
+        student_id: req.body.student_id,
+        parentMedConsent: req.body.parentMedConsent
+      })
+      .then(function(newParent){
+        console.log(newParent);
+      })
+    });
+
   // app.delete("/api/teacher/:id", function(req, res) {
   //   db.Student.destroy({
   //     where: {

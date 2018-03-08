@@ -16,4 +16,11 @@ module.exports = function(app) {
     	res.render('class');
     });
 
+    app.get("/staff/addparent", function(req, res) {
+    	res.render('staff/add-parent')
+    });
+
+    app.get("/staff/signup", function(req, res) {
+    	res.render('staff/create');
+    });
 };
