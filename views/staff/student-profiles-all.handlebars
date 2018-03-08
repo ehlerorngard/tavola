@@ -17,24 +17,17 @@
   </thead>
   <tbody>
     <tr>
-     <td>{{this.id}}</td>
-    </tr>
-    <tr>
+      <td>{{this.id}}</td>
       <td>{{this.first_name}}</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
     </tr>
   </tbody>
 </table>
 {{/each}}
 
-<h2>Results</h2>
+<h2>Student Search Results</h2>
 
 <table class="table table-bordered">
-  <thead>
+  <thead class="dataTableHeader">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">First Name</th>
@@ -46,6 +39,7 @@
       <th scope="col">Allergy</th>
       <th scope="col">epiPen</th>
       <th scope="col">Chronic Conditions</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -60,6 +54,7 @@
       <td id="allergy"></td>
       <td id="epi-pen"></td>
       <td id="chronic"></td>
+      <td id="updateStudentBox"></td>
     </tr>
   </tbody>
 </table>
