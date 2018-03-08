@@ -10,25 +10,30 @@ $(document).ready(function() {
     var studentName = {
       last_name: $("#search-result").val().trim()
     };
-    
-    console.log("student name = ", studentName);
 
     var userInput = $("#search-result").val().trim();
     // Exits out of function if search bar is submitted blank
     if(userInput.length === 0){
-      console.log("blank triggered");
       return;
     }
 
     $.post("/staff/search", studentName)
       // console.log(studentName + "HERERERERERE")
       .done(function(studentData){
-
-        console.log("THIS IS WORKING!!!!!!!!", studentData);
+      	$("#id").append(studentData.id);
+      	$("#first-name").append(studentData.first_name);
+      	$("#last-name").append(studentData.last_name);
+      	$("#birth").append(studentData.birth_date);
+      	$("#parent-id").append(studentData.parent_id);
+      	$("#teacher-id").append(studentData.teacher_id);
+      	$("#asthma").append(studentData.asthma);
+      	$("#allergy").append(studentData.allergy);
+      	$("#epi-pen").append(studentData.epi_pen);
+      	$("#chronic").append(studentData.chronic_condition);
       });
 
     // Empties out search bar
-    $("#student-search").val("");
+    $("#search-result").val("");
   }
 
   // To add a parent into the database
