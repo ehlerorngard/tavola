@@ -1,28 +1,14 @@
-{{nav-staff-block}}
+{{> nav-staff-block}}
 <div>
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs student-profile">
 	  <li class="nav-item">
 	    <a class="nav-link active" href="#">View All</a>
 	  </li>
 	  <li class="nav-item">
 	    <a class="nav-link" href="#">Medical Conditions</a>
 	  </li>
-	{{!-- </ul>	 --}}
 	<form class="form-inline my-2 my-lg-0">
-	  <input class="form-control mr-sm-2" type="search" placeholder="Student Name" aria-label="Search">
-	  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-		<a class="navbar-brand" href="/logout">
-			Logout
-		</a>
+	  <input class="form-control mr-sm-2" type="search" placeholder="Last Name" aria-label="Search" id="search-result">
+	  <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" id="student-search">Search</button>
 	</form>
-</div>	
-<div class="container">
-	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<h2>Welcome
-				<span class="staff-name"></span>
-			</h2>
-		</div>
-	</div>
-</div>
-	
+<div>
