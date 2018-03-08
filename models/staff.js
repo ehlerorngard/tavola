@@ -36,12 +36,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {underscored: true});
 
-  Staff.associate = function(models) {
-    Staff.hasMany(models.Student, {
-      foreignKey: 'teacher_id',
-      // sourceKey: 'student_id'
-    });
-  };
+  // Staff.associate = function(models) {
+  //   Staff.hasMany(models.Student, {
+  //     // foreignKey: 'teacher_id',
+  //     // sourceKey: 'student_id'
+  //   });
+  // };
 
   // Staff.associate = function(models) {
   //   Staff.hasMany(models.Student, {

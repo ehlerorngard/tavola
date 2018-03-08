@@ -19,15 +19,15 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
-  }, {underscored: true, timestamps: false});
+  }, {underscored: true});
 
-  Parent.associate = function(models) {
-    Parent.hasMany(models.Student, {
-      // through: ["family"],
-      foreignKey: "parent_id",
-      // otherKey: "student_id"
-    });
-  };
+  // Parent.associate = function(models) {
+  //   Parent.hasMany(models.Student, {
+  //     // through: ["family"],
+  //     // foreignKey: "parent_id",
+  //     // otherKey: "student_id"
+  //   });
+  // };
 
   return Parent;
 };

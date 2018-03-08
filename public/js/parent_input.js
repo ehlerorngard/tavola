@@ -10,9 +10,9 @@ $(document).ready(function () {
     var birthdateInput = $("#birthdate-input").val().trim();
     var parentIdInput = $("#parent-ID").val().trim();
     var staffIdInput = $("#staff-ID").val().trim();
-    var asthma = $("[name='asthma_radio']:checked").val();
+    var asthma = $("input[name=asthma_radio]:checked").val();
     var studentAllergy = $("#student-allergies").val().trim();
-    var epiPen = $("[name='epiPen_radio']:checked").val();
+    var epiPen = $("input[name=epiPen_radio]:checked").val();
     var chronicCon = $("#chronic-condition").val().trim();
 
     // Don't do anything if the name fields hasn't been filled out
@@ -27,25 +27,26 @@ $(document).ready(function () {
         first_name: firstnameInput,
         last_name: lastnameInput,
         birth_date: birthdateInput,
-        grade: studentGrade,
         parent_id: parentIdInput,
         teacher_id: staffIdInput,
         asthma: asthma,
         allergy: studentAllergy,
-        epi_pen: epipen,
+        epi_pen: epiPen,
         chronic_condition: chronicCon
-      // };
+      };
 
-      console.log("before post");
       $.ajax("/api/parent/add", {
         type: "POST",
         data: newStudent
       }).then(function() {
-          console.log("created new cat");
+          // reloads the page to empty out the values
           location.reload();
         }
       );
-    }
+      // $.post("/api/parent/add", newStudent, function() {
+      //   console.log("student posted!");
+      //   location.reload();
+      // });
   });
 
 
@@ -97,20 +98,20 @@ $(document).ready(function () {
  
 
     // Adding event listeners to initiate AJAX call to get the allergies, the presence of asthmatics, and other chronic conditions
-  $(document).on("click", "#", getClass);
+  // $(document).on("click", "#", getClass);
 
-    // Function for retrieving authors and getting them ready to be rendered to the page
-    function getClass() {
-      $.get("/api/parent/class", function(data) {
-        // var rowsToAdd = [];
-        // for (var i = 0; i < data.length; i++) {
-        //   rowsToAdd.push(createStudentRow(data[i]));
-        // }
-        // renderStudentList(rowsToAdd);
-        // nameInput.val("");
-        console.log(data);
-      });
-    }
+  //   // Function for retrieving authors and getting them ready to be rendered to the page
+  //   function getClass() {
+  //     $.get("/api/parent/class", function(data) {
+  //       // var rowsToAdd = [];
+  //       // for (var i = 0; i < data.length; i++) {
+  //       //   rowsToAdd.push(createStudentRow(data[i]));
+  //       // }
+  //       // renderStudentList(rowsToAdd);
+  //       // nameInput.val("");
+  //       console.log(data);
+  //     });
+  //   }
 
     // A function for rendering the list of authors to the page
     // function renderAuthorList(rows) {
