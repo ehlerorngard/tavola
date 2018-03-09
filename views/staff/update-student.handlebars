@@ -1,0 +1,70 @@
+{{> nav-parent-block}}
+{{!-- Add form that will capture the values that will be used by the parent_input.js file to populate the student.js model
+via a POST request --}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2>Create Student</h2>
+            <form class="create-student-form">
+                <div class="form-group">
+                    <label for="exampleInputFirstname1">Student First Name</label>
+                    <input type="text" class="form-control" id="firstname2" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputLastname1">Student Last Name</label>
+                    <input type="text" class="form-control" id="lastname2" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputBirthdate1">Student Birthdate</label>
+                    <input type="text" class="form-control" id="birthdate2" placeholder="MM/DD/YYYY">
+                </div>
+                <div class="form-group">
+                    <label for="parent-ID">Parent ID</label>
+                    <input type="number" class="form-control" id="parent-ID2" placeholder="Parent ID">
+                </div>
+                <div class="form-group">
+                    <label for="staff-ID">Staff ID</label>
+                    <input type="number" class="form-control" id="staff-ID2" placeholder="Staff ID">
+                </div>
+                <div>
+                    <label for="inlineCheckbox1">Does the student suffer from Asthma?</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input asthma" type="radio" id="inlineCheckbox5" value="true">
+                    <label class="form-check-label" for="inlineCheckbox1" name="asthma_radio">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input asthma" type="radio" id="inlineCheckbox6" value="false">
+                    <label class="form-check-label" for="inlineCheckbox2"name="asthma_radio">No</label>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label for="exampleInputAllergyId1">Student Allergies</label>
+                    <input type="text" class="form-control" id="student-allergies" placeholder="Student Allergies">
+                </div>
+                <div>
+                    <label for="exampleInputEpipenId1">Does the student require an epiPen due to severe allergies?</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input epipen" type="radio" id="inlineCheckbox7" value="true">
+                    <label class="form-check-label" for="inlineCheckbox3"name="epiPen_radio">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input epipen" type="radio" id="inlineCheckbox8" value="false">
+                    <label class="form-check-label" for="inlineCheckbox4" name="epiPen_radio">No</label>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                    <label for="chronic-condition">Chronic Conditions</label>
+                    <input type="text" class="form-control" id="chronic-condition2" placeholder="Chronic Conditions">
+                    <br>
+                </div>
+                <div>
+                    <button id="update-student-form" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
