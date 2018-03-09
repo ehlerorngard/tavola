@@ -15,34 +15,7 @@ module.exports = function(app) {
       })
     });
 
-    
     app.post("/staff/addstudent", function(req, res){
-    db.Student.create({
-     first_name: firstnameInput,
-      last_name: lastnameInput,
-      birth_date: birthdateInput,
-      parent_id: parentIdInput,
-      teacher_id: staffIdInput,
-      asthma: asthma,
-      allergy: studentAllergy,
-      epi_pen: epiPen,
-      chronic_condition: chronicCon
-    })
-    .then(function(newStudent){
-      console.log(newStudent);
-    })
-  });
-
-  // app.delete("/api/teacher/:id", function(req, res) {
-  //   db.Student.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function(dbAuthor) {
-  //     res.json(dbAuthor);
-  //   });
-  // });
-  app.post("/staff/addstudent", function(req, res){
     db.Student.create({
      first_name: firstnameInput,
       last_name: lastnameInput,
@@ -72,15 +45,6 @@ module.exports = function(app) {
       res.redirect("/staff/student/updateform");
       // res.render("staff/search", {student: studentData[0].dataValues});
 
-    });
-  });
-
-  app.get("/staff/allstudents", function(req, res) {
-  
-    db.Student.findAll().then(function(data) {
-      console.log("data is", data);
-      res.json(data[0].dataValues)
-      // res.render("class", {class: data});
     });
   });
 
