@@ -57,36 +57,22 @@ $(document).ready(function () {
     // Adding event listeners to initiate AJAX call to get the allergies, the presence of asthmatics, and other chronic conditions
   // $(document).on("click", "#", getClass);
 
-  //   // Function for retrieving authors and getting them ready to be rendered to the page
-  //   function getClass() {
-  //     $.get("/api/parent/class", function(data) {
-  //       // var rowsToAdd = [];
-  //       // for (var i = 0; i < data.length; i++) {
-  //       //   rowsToAdd.push(createStudentRow(data[i]));
-  //       // }
-  //       // renderStudentList(rowsToAdd);
-  //       // nameInput.val("");
-  //       console.log(data);
-  //     });
-  //   }
+    // Function for retrieving authors and getting them ready to be rendered to the page
+    // function getClass() {
+    //   $.get("/api/parent/class", function(data) {
 
-    // A function for rendering the list of authors to the page
-    // function renderAuthorList(rows) {
-    //   authorList.children().not(":last").remove();
-    //   authorContainer.children(".alert").remove();
-    //   if (rows.length) {
-    //     console.log(rows);
-    //     authorList.prepend(rows);
-    //   } else {
-    //     renderEmpty();
-    //   }
+    //     console.log(data);
+    //   });
     // }
 
-    // // Function for handling what to render when there are no authors
-    // function renderEmpty() {
-    //   var alertDiv = $("<div>");
-    //   alertDiv.addClass("alert alert-danger");
-    //   alertDiv.text("You must create an Student before you can create a Post.");
-    //   authorContainer.append(alertDiv);
-    // }
+  // View all students pertaining to a parent
+  function viewClassProfile(){
+    $.ajax("/api/parent/class", {
+        type: "GET"
+      }).then(function(data) {
+          
+      });
+  }
+
+   
 });
