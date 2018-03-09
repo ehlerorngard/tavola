@@ -28,6 +28,9 @@ module.exports = function (app) {
     app.get("/api/parent/class", function(req, res) {
         res.render('class');
     });
+    app.get("/staff/student/updateform", function(req, res) {
+        res.render('update-student');
+    })
 
     app.get("/staff/student", function(req, res) {
         res.render('staff/student-profiles-all');

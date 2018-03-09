@@ -20,7 +20,7 @@ $(document).ready(function() {
     $.post("/staff/search", studentName)
       // console.log(studentName + "HERERERERERE")
       .done(function(studentData){
-      	console.log("front-end", studentData);
+      	console.log("front-end data", studentData);
 
       	$("#id").text(studentData.id);
       	$("#first-name").text(studentData.first_name);
@@ -32,12 +32,28 @@ $(document).ready(function() {
       	$("#allergy").text(studentData.allergy);
       	$("#epi-pen").text(studentData.epi_pen);
       	$("#chronic").text(studentData.chronic_condition);
-        $("#updateStudentBox").html("<button class='btn btn-dark' id='updateStudent" + studentData.id + "'>update</button>")
+        $("#updateStudentBox").html("<button type='submit' class='btn btn-dark updateStudent' data-id='" + studentData.id + "' id='updateStudent" + studentData.id + "'>update</button>")
       });
 
     // Empties out search bar
     $("#search-result").val("");
   }
+  $(document).on("click", ".updateStudent", function(event) {
+    event.preventDefault();
+    var id_val = $(this).data("id");
+    console.log(id_val);
+    var student_id = {
+      id: $(this).data("id")
+    };
+    console.log("we are updating student number " + student_id.id);
+    
+    $.get("/staff/student/update", student_id)
+      .done(function(data){
+        console.log(data);
+        $("#firstname2").val() = data.first_name;
+        $("#lastname2").val() = data.last_name;
+      });
+  });
 
   // To add a parent into the database
   $("#parent-form").on("click", function(event){
