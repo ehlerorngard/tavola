@@ -42,25 +42,10 @@ module.exports = function(app) {
   //     res.json(dbAuthor);
   //   });
   // });
-  app.post("/staff/addstudent", function(req, res){
-    db.Student.create({
-     first_name: firstnameInput,
-      last_name: lastnameInput,
-      birth_date: birthdateInput,
-      parent_id: parentIdInput,
-      teacher_id: staffIdInput,
-      asthma: asthma,
-      allergy: studentAllergy,
-      epi_pen: epiPen,
-      chronic_condition: chronicCon
-    })
-    .then(function(newStudent){
-      console.log(newStudent);
-    })
-  });
+
 
   // Find all students with the matching last name
-  app.post("/staff/search", function(req, res){
+  app.post("/staff/student/search", function(req, res){
 
     db.Student.findAll({
       where: {
@@ -69,7 +54,8 @@ module.exports = function(app) {
     }).then(function(studentData){
 
       res.json(studentData[0].dataValues);
-      res.redirect("/staff/student/updateform");
+      // res.redirect("/staff/student/updateform");
+
       // res.render("staff/search", {student: studentData[0].dataValues});
 
     });
@@ -84,15 +70,20 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/staff/student/update", function(req, res){
-    console.log("getting...");
-    db.Student.findAll({
+  app.post("/staff/student/update", function(req, res) {
+    console.log("is this defined at all?? " + JSON.stringify(req.body, null, 4));
+    console.log("getting data for ... " + req.body.id);
+    db.Student.findOne({
       where: {
         id: req.body.id
       }
     }).then(function(student_data) {
-      console.log("STUDENT: " + student_data);
-      res.json(student_data[0].dataValues);
+      console.log("STUDENT: " + JSON.stringify(student_data));
+      console.log("first name is " + student_data.first_name);
+      // res.redirect("/staff/student/update");
+      res.json(student_data.dataValues);
+    }).catch(function(err) {
+      if (err) throw err;
     });
   });
 };
