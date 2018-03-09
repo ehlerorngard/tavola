@@ -1,6 +1,6 @@
 {{> studentprofiles-block}}
 
-{{#each students}}
+{{!-- {{#each students}}
 <table class="table table-hover">
   <thead>
     <tr>
@@ -11,7 +11,7 @@
       <th scope="col">Asthma</th>
       <th scope="col">Allergy</th>
       <th scope="col">EpiPen</th>
-{{!--       <th scope="col">Medical Consent</th> --}}
+      <th scope="col">Medical Consent</th>
       <th scope="col">Chronic Condition</th>
     </tr>
   </thead>
@@ -25,11 +25,42 @@
     <tr>
       <th scope="row">3</th>
       <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
-{{/each}}
+{{/each}} --}}
+<h2>All Students</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Birth Date</th>
+        <th scope="col">Parent ID</th>
+        <th scope="col">Teacher ID</th>
+        <th scope="col">Asthma</th>
+        <th scope="col">Allergy</th>
+        <th scope="col">epiPen</th>
+        <th scope="col">Chronic Conditions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="id-view"></td>
+        <td id="first-name-view"></td>
+        <td id="last-name-view"></td>
+        <td id="birth-view"></td>
+        <td id="parent-id-view"></td>
+        <td id="teacher-id-view"></td>
+        <td id="asthma-view"></td>
+        <td id="allergy-view"></td>
+        <td id="epi-pen-view"></td>
+        <td id="chronic-view"></td>
+      </tr>
+    </tbody>
+  </table>
 
 <h2>Results</h2>
 

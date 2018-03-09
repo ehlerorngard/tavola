@@ -11,3 +11,8 @@ body {
   height: 85px;
   width: 85px;
 }
+
+.sign-up {
+	margin-left: 5em;
+	width: 50%;
+}
