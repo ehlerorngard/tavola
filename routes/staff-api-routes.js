@@ -33,7 +33,7 @@ module.exports = function(app) {
   });
 
   // Find all students with the matching last name
-  app.post("/staff/search", function(req, res){
+  app.post("/staff/student/search", function(req, res){
 
     db.Student.findAll({
       where: {
@@ -42,21 +42,36 @@ module.exports = function(app) {
     }).then(function(studentData){
 
       res.json(studentData[0].dataValues);
-      res.redirect("/staff/student/updateform");
+      // res.redirect("/staff/student/updateform");
+
       // res.render("staff/search", {student: studentData[0].dataValues});
 
     });
   });
 
-  app.get("/staff/student/update", function(req, res){
-    console.log("getting...");
-    db.Student.findAll({
+  app.get("/staff/allstudents", function(req, res) {
+  
+    db.Student.findAll().then(function(data) {
+      console.log("data is", data);
+      res.json(data[0].dataValues)
+      // res.render("class", {class: data});
+    });
+  });
+
+  app.post("/staff/student/update", function(req, res) {
+    console.log("is this defined at all?? " + JSON.stringify(req.body, null, 4));
+    console.log("getting data for ... " + req.body.id);
+    db.Student.findOne({
       where: {
         id: req.body.id
       }
     }).then(function(student_data) {
-      console.log("STUDENT: " + student_data);
-      res.json(student_data[0].dataValues);
+      console.log("STUDENT: " + JSON.stringify(student_data));
+      console.log("first name is " + student_data.first_name);
+      // res.redirect("/staff/student/update");
+      res.json(student_data.dataValues);
+    }).catch(function(err) {
+      if (err) throw err;
     });
   });
 };

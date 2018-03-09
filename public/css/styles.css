@@ -34,4 +34,10 @@ body {
 .sign-up {
 	text-align: center;
 	margin-left: 20em;
+
+ul {
+	display: inline-block;
+}
+#searchBar {
+	display: inline-block;
 }
