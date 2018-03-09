@@ -70,7 +70,7 @@ $(document).ready(function () {
     $.ajax("/api/parent/class", {
         type: "GET"
       }).then(function(data) {
-          
+          console.log("THIS IS DATA: ", data);
       });
   }
 
