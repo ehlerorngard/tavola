@@ -13,6 +13,7 @@ $(document).ready(function() {
     };
 
     if (!userData.username || !userData.password) {
+      $("#myform")[0].reset();
       return;
     }
 
