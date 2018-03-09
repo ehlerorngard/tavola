@@ -1,11 +1,14 @@
 {{> nav-staff-block}}
-<div>
-	<ul class="nav nav-tabs student-profile">
+<div class="row">
+	<ul class="nav nav-tabs student-profile col">
 	  <li class="nav-item">
-	    <a class="nav-link active" href="/staff/allstudents" id="view-all">View All</a>
+	    <a class="nav-link active" href="/staff/allstudents" id="view-all">View All Students</a>
 	  </li>
-	<form class="form-inline my-2 my-lg-0">
-	  <input class="form-control mr-sm-2" type="search" placeholder="Last Name" aria-label="Search" id="search-result">
+	  <li class="nav-item">
+	    <a class="nav-link active" href="/staff/allstudents" id="view-all">Medical & Health Data</a>
+	  </li>
+	<form class="form-inline my-2 my-lg-0 col" id="searchBar">
+	  <input class="form-control mr-sm-2" type="search" placeholder="Student Last Name" aria-label="Search" id="search-result">
 	  <a href="/staff/search"><button class="btn btn-dark btn-outline-dark my-2 my-sm-0" type="submit" id="student-search">Search</button></a>
 	</form>
 <div>

@@ -32,18 +32,19 @@ module.exports = function (app) {
     app.get("api/parent/class", function(req, res) {
         res.render('class');
     });
-    app.get("/staff/student/updateform", function(req, res) {
-        res.render('update-student');
+//xxxxxxxxxxxxxxxxxx
+    app.get("/staff/student/update", function(req, res) {
+        res.render('staff/update-student');
     })
 
     app.get("/staff-home", function(req, res) {
         res.render('staff/home');
     });
-
+//===============
     app.get("/staff/addstudent", function(req, res) {
         res.render('staff/add-profile');
     });
-
+//===============
     app.get("/staff/student", function(req, res) {
         res.render('staff/student-profiles-all');
     });

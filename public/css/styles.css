@@ -30,3 +30,10 @@ body {
 .header-student-profile {
 	margin-left: 3em;
 }
+
+ul {
+	display: inline-block;
+}
+#searchBar {
+	display: inline-block;
+}
