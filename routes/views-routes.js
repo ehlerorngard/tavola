@@ -35,10 +35,11 @@ module.exports = function (app) {
 
     app.get("/staff/student/updateform", function(req, res) {
         res.render('staff/update-student');
+    });
 
     app.get("/staff/student/update", function(req, res) {
         res.render('staff/update-student');
-    })
+    });
 
     app.get("/staff-home", function(req, res) {
         res.render('staff/home');

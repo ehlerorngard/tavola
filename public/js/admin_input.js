@@ -137,8 +137,7 @@ $(document).ready(function() {
       }).then(function() {
           // reloads the page to empty out the values
           location.reload();
-        }
-      );
+        });
   });
 
   //=================================
