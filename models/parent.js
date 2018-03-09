@@ -11,14 +11,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     phone_number: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
     },
     parentMedConsent: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     }
-  }, {underscored: true});
+  }, {underscored: true, timestamps: false});
 
   // Parent.associate = function(models) {
   //   Parent.hasMany(models.Student);

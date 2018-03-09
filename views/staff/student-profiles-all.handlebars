@@ -1,35 +1,5 @@
 {{> studentprofiles-block}}
 
-{{!-- {{#each students}}
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Birthday</th>
-      <th scope="col">Asthma</th>
-      <th scope="col">Allergy</th>
-      <th scope="col">EpiPen</th>
-      <th scope="col">Medical Consent</th>
-      <th scope="col">Chronic Condition</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     <td>{{this.id}}</td>
-    </tr>
-    <tr>
-      <td>{{this.first_name}}</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-{{/each}} --}}
 <h2>All Students</h2>
   <table class="table table-bordered">
     <thead>
@@ -62,10 +32,10 @@
     </tbody>
   </table>
 
-<h2>Results</h2>
+<h2>Student Search Results</h2>
 
 <table class="table table-bordered">
-  <thead>
+  <thead class="dataTableHeader">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">First Name</th>
@@ -77,6 +47,7 @@
       <th scope="col">Allergy</th>
       <th scope="col">epiPen</th>
       <th scope="col">Chronic Conditions</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -91,6 +62,7 @@
       <td id="allergy"></td>
       <td id="epi-pen"></td>
       <td id="chronic"></td>
+      <td id="updateStudentBox"></td>
     </tr>
   </tbody>
 </table>

@@ -26,11 +26,12 @@ $(document).ready(function() {
       	$("#last-name").text(studentData.last_name);
       	$("#birth").text(studentData.birth_date);
       	$("#parent-id").text(studentData.parent_id);
-      	$("#teacher-id").text(studentData.teacher_id);
+      	$("#teacher-id").text(studentData.staff_id);
       	$("#asthma").text(studentData.asthma);
       	$("#allergy").text(studentData.allergy);
       	$("#epi-pen").text(studentData.epi_pen);
       	$("#chronic").text(studentData.chronic_condition);
+        $("#updateStudentBox").html("<button class='btn btn-dark' id='updateStudent" + studentData.id + "'>update</button>")
       });
 
     // Empties out search bar
@@ -114,6 +115,41 @@ $(document).ready(function() {
       };
 
       $.ajax("/staff/addstudent", {
+        type: "POST",
+        data: newStudent
+      }).then(function() {
+          // reloads the page to empty out the values
+          location.reload();
+        }
+      );
+  });
+
+  $("#student-form").on("click", function(event){
+    event.preventDefault();
+
+    var firstnameInput = $("#firstname-input").val().trim();
+    var lastnameInput = $("#lastname-input").val().trim();
+    var birthdateInput = $("#birthdate-input").val().trim();
+    var parentIdInput = $("#parent-ID").val().trim();
+    var staffIdInput = $("#staff-ID").val().trim();
+    var asthma = $("input[name=asthma_radio]:checked").val();
+    var studentAllergy = $("#student-allergies").val().trim();
+    var epiPen = $("input[name=epiPen_radio]:checked").val();
+    var chronicCon = $("#chronic-condition").val().trim();
+
+      var newStudent = {
+        first_name: firstnameInput,
+        last_name: lastnameInput,
+        birth_date: birthdateInput,
+        parent_id: parentIdInput,
+        teacher_id: staffIdInput,
+        asthma: asthma,
+        allergy: studentAllergy,
+        epi_pen: epiPen,
+        chronic_condition: chronicCon
+      };
+
+      $.ajax("/api/staff/addstudent", {
         type: "POST",
         data: newStudent
       }).then(function() {

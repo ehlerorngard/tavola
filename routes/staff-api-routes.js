@@ -15,6 +15,24 @@ module.exports = function(app) {
       })
     });
 
+    
+    app.post("/staff/addstudent", function(req, res){
+    db.Student.create({
+     first_name: firstnameInput,
+      last_name: lastnameInput,
+      birth_date: birthdateInput,
+      parent_id: parentIdInput,
+      teacher_id: staffIdInput,
+      asthma: asthma,
+      allergy: studentAllergy,
+      epi_pen: epiPen,
+      chronic_condition: chronicCon
+    })
+    .then(function(newStudent){
+      console.log(newStudent);
+    })
+  });
+
   // app.delete("/api/teacher/:id", function(req, res) {
   //   db.Student.destroy({
   //     where: {
