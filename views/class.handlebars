@@ -1,9 +1,10 @@
 {{> nav-parent-block}}
 {{!-- Class profile table --}}
 {{#each class}}
-	<h2>Class Profile</h2>
 	<br>
-	<table class="table table-bordered">
+	<h2 class="header-student-profile">Student Profile</h2>
+	<br>
+	<table class="table table-bordered student-profile">
 	  <thead>
 	    <tr>
 	      <th scope="col">Asthma</th>
@@ -15,16 +16,12 @@
 	  <tbody>
 	    <tr>
 		    {{#if asthma}}
-		    	<td>There is at least one student with asthma, please be...</td>
+		    	<td>This student has asthma</td>
 		    {{/if}}
 		    {{#unless asthma}}
 		    	<td>N/A</td>
 			{{/unless}}
-	    </tr>
-	    <tr>
 		    <td>{{this.allergy}}</td>
-	    </tr>
-	    <tr>
 			{{#if null}}
 				<td>N/A</td>
 			{{/if}}
@@ -35,3 +32,35 @@
 	  </tbody>
 	</table>
 {{/each}}
+{{!-- <br>
+<h2>Students</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Birth Date</th>
+        <th scope="col">Parent ID</th>
+        <th scope="col">Teacher ID</th>
+        <th scope="col">Asthma</th>
+        <th scope="col">Allergy</th>
+        <th scope="col">epiPen</th>
+        <th scope="col">Chronic Conditions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="id-view"></td>
+        <td id="first-name-view"></td>
+        <td id="last-name-view"></td>
+        <td id="birth-view"></td>
+        <td id="parent-id-view"></td>
+        <td id="teacher-id-view"></td>
+        <td id="asthma-view"></td>
+        <td id="allergy-view"></td>
+        <td id="epi-pen-view"></td>
+        <td id="chronic-view"></td>
+      </tr>
+    </tbody>
+  </table> --}}

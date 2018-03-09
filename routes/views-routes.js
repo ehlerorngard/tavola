@@ -25,17 +25,37 @@ module.exports = function (app) {
         res.render("login");
     });
 
-    app.get("/api/parent/class", function(req, res) {
+    app.get("/staff", function(req, res){
+        res.render('staff/student-profiles-all');
+    });
+
+    app.get("api/parent/class", function(req, res) {
         res.render('class');
     });
     app.get("/staff/student/updateform", function(req, res) {
         res.render('update-student');
     })
 
+    app.get("/staff-home", function(req, res) {
+        res.render('staff/home');
+    });
+
+    app.get("/staff/addstudent", function(req, res) {
+        res.render('staff/add-profile');
+    });
+
     app.get("/staff/student", function(req, res) {
         res.render('staff/student-profiles-all');
     });
 
+    app.get("/staff/search", function(req, res){
+        res.render('staff/search');
+    });
+
+    app.get("/staff/allstudents", function(req, res){
+        res.render('staff/student-profiles-all');
+    });
+    
     app.get("/staff/addparent", function(req, res) {
         res.render('staff/add-parent')
     });

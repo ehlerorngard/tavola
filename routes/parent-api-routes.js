@@ -1,13 +1,9 @@
 var db = require("../models");
 
 module.exports = function(app) {
-
-  // this GET grabs info for the parent screen(..right?)
-  // –– attributes will be the columns whose values
-  //    we want to be able to disply to the user
+  // Display students
   app.get("/api/parent/class", function(req, res) {
     
-    // this would display to the parent user their own info
     db.Student.findAll({
       // where: {parent_id: req.body.id},
       // include: [{
@@ -22,28 +18,6 @@ module.exports = function(app) {
       res.render("class", {class: data});
     });
   });
-  //   // =========================
-  //   // this grabs data for the parent's student(s),
-  //   // AND includes that student's teacher's name,
-  //   //     phone # and email
-  //   // =========================
-  //   db.Student.findAll({
-  //     where: {parent_id: req.body.parent_id},
-  //     include: [{
-  //       model: db.Staff,
-  //       attributes: ['first_name', 'last_name', 'phone_number', 'email'],
-  //       where: {id: db.Student.teacher_id}
-  //     }]
-  //   }).then(function(data){
-  //     var dbStudent = {
-  //       infoForParent: data
-  //     }
-  //     console.log(dbStudent);
-  //     res.render("parent/class", dbStudent);
-
-  //   });
-  // });
-
 
   app.post("/api/parent/add", function(req, res) {
     db.Student.create({
