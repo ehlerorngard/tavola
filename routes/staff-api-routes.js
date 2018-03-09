@@ -15,7 +15,6 @@ module.exports = function(app) {
       })
     });
 
-    
     app.post("/staff/addstudent", function(req, res){
     db.Student.create({
      first_name: firstnameInput,
@@ -32,17 +31,6 @@ module.exports = function(app) {
       console.log(newStudent);
     })
   });
-
-  // app.delete("/api/teacher/:id", function(req, res) {
-  //   db.Student.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function(dbAuthor) {
-  //     res.json(dbAuthor);
-  //   });
-  // });
-
 
   // Find all students with the matching last name
   app.post("/staff/student/search", function(req, res){
