@@ -20,3 +20,13 @@ body {
 	background-color: lightgray;
 
 }
+
+.student-profile {
+	width: 50%;
+	margin-left: 5em;
+
+}
+
+.header-student-profile {
+	margin-left: 3em;
+}

@@ -2,9 +2,9 @@
 {{!-- Class profile table --}}
 {{#each class}}
 	<br>
-	<h2>Student Profile</h2>
+	<h2 class="header-student-profile">Student Profile</h2>
 	<br>
-	<table class="table table-bordered">
+	<table class="table table-bordered student-profile">
 	  <thead>
 	    <tr>
 	      <th scope="col">Asthma</th>
@@ -16,16 +16,12 @@
 	  <tbody>
 	    <tr>
 		    {{#if asthma}}
-		    	<td>There is at least one student with asthma, please be...</td>
+		    	<td>This student has asthma</td>
 		    {{/if}}
 		    {{#unless asthma}}
 		    	<td>N/A</td>
 			{{/unless}}
-	    </tr>
-	    <tr>
 		    <td>{{this.allergy}}</td>
-	    </tr>
-	    <tr>
 			{{#if null}}
 				<td>N/A</td>
 			{{/if}}
