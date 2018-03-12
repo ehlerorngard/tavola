@@ -20,14 +20,15 @@ module.exports = function (app) {
     app.get("/login", function (req, res) {
         // If the user already has an account send them to the staff page
         if (req.user) {
-            res.redirect("/staff");
+            res.redirect("/staff-home");
         }
-        res.render("login");
+        else
+        res.redirect("/staff");
     });
 
-    // app.get("/staff", function(req, res){
-    //     res.render('staff/home');
-    // });
+    app.get("/staff", function(req, res){
+        res.render('login');
+    });
 
     app.get("api/parent/class", function(req, res) {
         res.render('class');
@@ -71,6 +72,8 @@ module.exports = function (app) {
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     app.get("/staff", isAuthenticated, function (req, res) {
-        res.render("staff/home");
+
+        res.render("login");
+
     });
 };
