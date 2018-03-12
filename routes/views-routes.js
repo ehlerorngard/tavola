@@ -3,7 +3,7 @@ const path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
-    // cms route loads cms.html
+
     app.get("/parent", function (req, res) {
         res.render('add');
     });
@@ -33,7 +33,10 @@ module.exports = function (app) {
     app.get("api/parent/class", function(req, res) {
         res.render('class');
     });
-//xxxxxxxxxxxxxxxxxx
+
+    app.get("/staff/student/updateform", function(req, res) {
+        res.render('staff/update-student');
+
     app.get("/staff/student/update", function(req, res) {
         res.render('staff/update-student');
     })
@@ -41,11 +44,11 @@ module.exports = function (app) {
     app.get("/staff-home", function(req, res) {
         res.render('staff/home');
     });
-//===============
+
     app.get("/staff/addstudent", function(req, res) {
         res.render('staff/add-profile');
     });
-//===============
+
     app.get("/staff/student", function(req, res) {
         res.render('staff/student-profiles-all');
     });
@@ -66,12 +69,11 @@ module.exports = function (app) {
         res.render('staff/create');
     });
 
-    app.get("/staff/search", function(req, res) {
-        res.render('staff/search');
-    });
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     app.get("/staff", isAuthenticated, function (req, res) {
+
         res.render("login");
+
     });
 };
