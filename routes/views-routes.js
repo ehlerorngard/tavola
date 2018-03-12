@@ -72,7 +72,13 @@ module.exports = function (app) {
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     app.get("/staff", isAuthenticated, function (req, res) {
+<<<<<<< HEAD
         res.render("login");
+=======
+
+        res.render("login");
+
+>>>>>>> da0189c6ec9a550d0b4d1ad25b72afb1cf5292a7
     });
 });
 }
