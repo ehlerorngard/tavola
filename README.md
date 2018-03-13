@@ -14,9 +14,9 @@ You can add a student:
 Once you log into the staff section, you can search for a student:  
 ![](https://github.com/Trantastic/tavola/blob/master/public/img/demo2.gif)
 
-__Try it for yourself:__ [Tavola (home)](https://tavola-2018.herokuapp.com/)
+__Try it for yourself:__ [Tavola (home screen)](https://tavola-2018.herokuapp.com/)
 
-__Staff Login:__ [Tavola (staff login)](https://tavola-2018.herokuapp.com/login)  
+__Staff Page Login:__ [Tavola (staff login page)](https://tavola-2018.herokuapp.com/login)  
 Login: _test_  
 Password: _1234_
 
@@ -37,14 +37,12 @@ If you wish to run this app on your own computer please follow the instructions 
 
 ## Technologies Used ##
 
-[Express](https://www.npmjs.com/package/express) \
-
-[Passport.js](http://www.passportjs.org/) \
-
-[mysql2](https://www.npmjs.com/package/mysql2) \
-[sequelize](https://www.npmjs.com/package/sequelize) \
+[Express](https://www.npmjs.com/package/express)\
+[Passport.js](http://www.passportjs.org/)\
+[mysql2](https://www.npmjs.com/package/mysql2)\
+[sequelize](https://www.npmjs.com/package/sequelize)\
 [Handlebars js](https://handlebarsjs.com/)\
-[Bootstrap v4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) \
+[Bootstrap v4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 
 
 ## Future Development ##
