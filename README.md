@@ -4,7 +4,7 @@ _This project was developed by: Bill Windsor, Brandan Richardson, Ehler Orngard,
 
 ## Description ##
 
-This is a web app designed to provide easy, immediate access to the medical information of students. Teachers may use this app in case of emergency to look up a student's medical notes, and parents may use this to quickly and easily identify if there are any food allergies when preparing food for their child's class.  
+This is a web app designed to provide easy, immediate access to the medical information of students. Teachers may use this app in case of emergency or other reference necessity to look up a student's medical notes, and parents may use this to quickly and easily identify if there are any food allergies when preparing food for their child's class.  The app holds potential conceptually to either be a component of or be expanded into a comprehensive student information management system.  
 
 ## Demo ##
 
