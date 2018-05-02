@@ -29,10 +29,10 @@ If you wish to run this app on your own computer please follow the instructions 
 
 2. Start the server by typing in your terminal `node server.js`.
 
-3. To seed the database, make sure you have [Sequelize-CLI](https://www.npmjs.com/package/sequelize-cli). 
+3. To seed the database, make sure you have [Sequelize-CLI](https://www.npmjs.com/package/sequelize-cli) installed. 
    In your terminal type `sequelize db:seed:all`
 
-4. Now you're all set, you just need to open your browser and in the browser's address bar type localhost:3000
+4. Now you're all set: you just need to open your browser and set the url to localhost:3000.
 
 
 ## Technologies Used ##
