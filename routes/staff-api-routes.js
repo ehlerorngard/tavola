@@ -42,9 +42,6 @@ module.exports = function(app) {
     }).then(function(studentData){
 
       res.json(studentData[0].dataValues);
-      // res.redirect("/staff/student/updateform");
-
-      // res.render("staff/search", {student: studentData[0].dataValues});
 
     });
   });
@@ -54,7 +51,6 @@ module.exports = function(app) {
     db.Student.findAll().then(function(data) {
       console.log("data is", data);
       res.json(data[0].dataValues)
-      // res.render("class", {class: data});
     });
   });
 
