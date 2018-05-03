@@ -4,17 +4,7 @@ module.exports = function(app) {
   // Display students
   app.get("/api/parent/class", function(req, res) {
     
-    db.Student.findAll({
-      // where: {parent_id: req.body.id},
-      // include: [{
-      //   model: db.Student,
-      //   through: {
-      //     attributes: [
-      //       // any student values we'd want would go here
-      //     ],
-      //   }
-      // }]
-    }).then(function(data) {
+    db.Student.findAll({}).then(function(data) {
       res.render("class", {class: data});
     });
   });
@@ -34,8 +24,6 @@ module.exports = function(app) {
     .then(function(dbStudent) {
       res.json(dbStudent);
       console.log(dbStudent);
-      // res.render("add", dbStudent);
-
     });
   });
 
